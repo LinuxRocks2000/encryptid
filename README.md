@@ -11,14 +11,14 @@ A client that wishes to connect to an encryptid network should connect to the en
 
 The server should respond with an error byte (see below); if the error byte is OK, the server and client begin the Diffie-Hellman like process:
 
-* Both parties generate a random 2048-bit (256 byte) private key.
+* Both parties generate a random 2056-bit (257 byte - we reserve the first byte) private key.
 * Server generates a random public key and sends it to the client.
 * Server uses bitwise OR to sign its private key by public, and sends that to the client.
 * Client uses bitwise OR to sign its private key by public and sends that to the server.
 * Server signs what the client sent it by its private key with bitwise OR.
 * Client signs what the server sent it by its private key with bitwise OR.
 
-Both parties should now have the same 2048-bit private key (note: this is a very new project, and I'm still playing around with the encryption process, so this is subject to change and hopefully improvement).
+Both parties should now have the same 2056-bit private key (note: this is a very new project, and I'm still playing around with the encryption process, so this is subject to change and hopefully improvement).
 
 ### Encryption
 
